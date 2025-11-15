@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 // write variable that holds computer random choice
 function getComputerChoice() {
   let value = Math.round(Math.random() * 2) + 1;
