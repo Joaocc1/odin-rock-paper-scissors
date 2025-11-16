@@ -28,10 +28,6 @@ function getHumanChoice() {
 // show both choices
 // compare choices and return a winner
 function playRound(humanChoice, computerChoice) {
-  let roundOutcome = "";
-  let winHand = "";
-  let loseHand = "";
-
   // human wins
   if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
@@ -42,7 +38,7 @@ function playRound(humanChoice, computerChoice) {
     winHand = humanChoice;
     loseHand = computerChoice;
     humanScore++;
-    console.log(`You ${roundOutcome}! ${winHand} beats ${loseHand}.`);
+    console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
 
     // computer wins
   } else if (
@@ -54,7 +50,7 @@ function playRound(humanChoice, computerChoice) {
     winHand = computerChoice;
     loseHand = humanChoice;
     computerScore++;
-    console.log(`You ${roundOutcome}! ${winHand} beats ${loseHand}.`);
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
   } else {
     console.log("You draw!");
   }
