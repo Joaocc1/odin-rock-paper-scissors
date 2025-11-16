@@ -35,6 +35,15 @@ function playGame() {
     playRound(humanSelection, computerSelection);
   }
 
+  // deterrmine winner
+  if (humanScore > computerScore) {
+    console.log("Congratulations! You won the game!");
+  } else if (humanScore < computerScore) {
+    console.log("You lost the game.");
+  } else if (humanScore === computerScore) {
+    console.log("The game is a draw.");
+  }
+
   function playRound(humanChoice, computerChoice) {
     // human wins
     if (
