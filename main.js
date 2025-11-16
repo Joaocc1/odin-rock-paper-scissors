@@ -1,12 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
 
-let humanSelection = getHumanChoice().toLowerCase();
-let computerSelection = getComputerChoice().toLowerCase();
-
-console.log(computerSelection);
-console.log(humanSelection);
-
 // write variable that holds computer random choice
 function getComputerChoice() {
   let value = Math.round(Math.random() * 2) + 1;
@@ -28,8 +22,16 @@ function getHumanChoice() {
 // show both choices
 // compare choices and return a winner
 
-function playGame(humanSelection, computerSelection) {
+function playGame() {
+  let humanSelection = "";
+  let computerSelection = "";
+
   for (let i = 0; i < 5; i++) {
+    humanSelection = getHumanChoice().toLowerCase();
+    computerSelection = getComputerChoice().toLowerCase();
+
+    console.log(computerSelection);
+    console.log(humanSelection);
     playRound(humanSelection, computerSelection);
   }
 
@@ -65,4 +67,4 @@ function playGame(humanSelection, computerSelection) {
   }
 }
 
-playGame(humanSelection, computerSelection);
+playGame();
