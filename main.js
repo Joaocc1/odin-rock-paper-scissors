@@ -1,6 +1,12 @@
 let humanScore = 0;
 let computerScore = 0;
 
+let humanSelection = getHumanChoice().toLowerCase();
+let computerSelection = getComputerChoice().toLowerCase();
+
+console.log(computerSelection);
+console.log(humanSelection);
+
 // write variable that holds computer random choice
 function getComputerChoice() {
   let value = Math.round(Math.random() * 2) + 1;
@@ -14,13 +20,46 @@ function getComputerChoice() {
   }
 }
 
-console.log(getComputerChoice());
 // ask user for a choice and save it
 function getHumanChoice() {
   return prompt("Choose one: Rock / Paper / Scissors");
 }
 
-console.log(getHumanChoice());
-
 // show both choices
 // compare choices and return a winner
+function playRound(humanChoice, computerChoice) {
+  let roundOutcome = "";
+  let winHand = "";
+  let loseHand = "";
+
+  // human wins
+  if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    roundOutcome = "win";
+    winHand = humanChoice;
+    loseHand = computerChoice;
+    humanScore++;
+    console.log(`You ${roundOutcome}! ${winHand} beats ${loseHand}.`);
+
+    // computer wins
+  } else if (
+    (computerChoice === "rock" && humanChoice === "scissors") ||
+    (computerChoice === "paper" && humanChoice === "rock") ||
+    (computerChoice === "scissors" && humanChoice === "paper")
+  ) {
+    roundOutcome = "lose";
+    winHand = computerChoice;
+    loseHand = humanChoice;
+    computerScore++;
+    console.log(`You ${roundOutcome}! ${winHand} beats ${loseHand}.`);
+  } else {
+    console.log("You draw!");
+  }
+
+  console.log(`You: ${humanScore}; Computer: ${computerScore}`);
+}
+
+playRound(humanSelection, computerSelection);
