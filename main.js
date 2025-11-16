@@ -30,8 +30,8 @@ function playGame() {
     humanSelection = getHumanChoice().toLowerCase();
     computerSelection = getComputerChoice().toLowerCase();
 
-    console.log(computerSelection);
-    console.log(humanSelection);
+    console.log(`Computer plays ${computerSelection}`);
+    console.log(`You play ${humanSelection}`);
     playRound(humanSelection, computerSelection);
   }
 
@@ -69,7 +69,7 @@ function playGame() {
       computerScore++;
       console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
     } else {
-      console.log("You draw!");
+      console.log("It's a draw!");
     }
 
     console.log(`You: ${humanScore}; Computer: ${computerScore}`);
