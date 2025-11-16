@@ -30,6 +30,8 @@ function playGame() {
     humanSelection = getHumanChoice().toLowerCase();
     computerSelection = getComputerChoice().toLowerCase();
 
+    console.log(`---- Round ${i + 1} ----`);
+
     console.log(`Computer plays ${computerSelection}`);
     console.log(`You play ${humanSelection}`);
     playRound(humanSelection, computerSelection);
