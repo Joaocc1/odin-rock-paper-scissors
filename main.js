@@ -1,8 +1,11 @@
+let roundCounter = document.querySelector(".round-counter").querySelector("p");
+let humanScoreCard = document.querySelector(".human-score");
+let computerScoreCard = document.querySelector(".computer-score");
+let buttons = document.querySelector("#buttons");
+
 let round = 0;
 let humanScore = 0;
 let computerScore = 0;
-let roundCounter = document.querySelector(".round-counter").querySelector("p");
-let buttons = document.querySelector("#buttons");
 
 buttons.addEventListener("click", (e) => {
   let target = e.target.classList;
@@ -10,6 +13,8 @@ buttons.addEventListener("click", (e) => {
 });
 
 roundCounter.append(` ${round}`);
+humanScoreCard.append(` ${humanScore}`);
+computerScoreCard.append(` ${computerScore}`);
 
 // write variable that holds computer random choice
 function getComputerChoice() {
