@@ -1,5 +1,9 @@
+let round = 0;
 let humanScore = 0;
 let computerScore = 0;
+let roundCounter = document.querySelector(".round-counter").querySelector("p");
+
+roundCounter.append(` ${round}`);
 
 // write variable that holds computer random choice
 function getComputerChoice() {
@@ -26,16 +30,16 @@ function playGame() {
   let humanSelection = "";
   let computerSelection = "";
 
-  for (let i = 0; i < 5; i++) {
-    humanSelection = getHumanChoice().toLowerCase();
-    computerSelection = getComputerChoice().toLowerCase();
+  // for (let i = 0; i < 5; i++) {
+  humanSelection = getHumanChoice().toLowerCase();
+  computerSelection = getComputerChoice().toLowerCase();
 
-    console.log(`---- Round ${i + 1} ----`);
+  console.log(`---- Round ${i + 1} ----`);
 
-    console.log(`Computer plays ${computerSelection}`);
-    console.log(`You play ${humanSelection}`);
-    playRound(humanSelection, computerSelection);
-  }
+  console.log(`Computer plays ${computerSelection}`);
+  console.log(`You play ${humanSelection}`);
+  playRound(humanSelection, computerSelection);
+  // }
 
   // deterrmine winner
   if (humanScore > computerScore) {
