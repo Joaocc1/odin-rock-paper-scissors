@@ -1,4 +1,4 @@
-let roundCounter = document.querySelector(".round-counter").querySelector("p");
+let roundCounter = document.querySelector(".round").querySelector("span");
 let humanScoreCard = document.querySelector(".human-score");
 let computerScoreCard = document.querySelector(".computer-score");
 let buttons = document.querySelector("#buttons");
@@ -12,9 +12,9 @@ buttons.addEventListener("click", (e) => {
   playRound(target);
 });
 
-roundCounter.append(` ${round}`);
-humanScoreCard.append(` ${humanScore}`);
-computerScoreCard.append(` ${computerScore}`);
+roundCounter.innerText = round;
+humanScoreCard.querySelector("span").append(` ${humanScore}`);
+computerScoreCard.querySelector("span").append(` ${computerScore}`);
 
 // write variable that holds computer random choice
 function getComputerChoice() {
@@ -60,14 +60,18 @@ function getResult(humanChoice, computerChoice) {
 }
 
 function playRound(humanChoice) {
-  let humanSelection = humanChoice.toLowerCase();
+  let humanSelection = humanChoice;
   let computerSelection = getComputerChoice().toLowerCase();
 
   console.log(`Computer plays ${computerSelection}`);
   console.log(`You play ${humanSelection}`);
 
   let result = getResult(humanSelection, computerSelection);
+  console.log(result);
   round += 1;
+  roundCounter.innerText = round;
+
+  console.log(round);
 
   // deterrmine winner
   if (result === "Human wins") {
