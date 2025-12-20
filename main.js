@@ -1,11 +1,11 @@
-let roundCounter = document.querySelector(".round").querySelector("span");
-let humanScoreCard = document
+const roundCounter = document.querySelector(".round").querySelector("span");
+const humanScoreCard = document
   .querySelector(".human-score")
   .querySelector("span");
-let computerScoreCard = document
+const computerScoreCard = document
   .querySelector(".computer-score")
   .querySelector("span");
-let buttons = document.querySelector("#buttons");
+const buttons = document.querySelector("#buttons");
 const feedback = document.querySelector("#feedback");
 
 let round = 0;
