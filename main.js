@@ -12,8 +12,12 @@ let humanScore = 0;
 let computerScore = 0;
 
 buttons.addEventListener("click", (e) => {
-  let target = e.target.classList;
-  playRound(target);
+  let target = Array.from(e.target.classList);
+  let choice = target[0];
+  console.log(typeof target);
+  console.log(Array.isArray(target));
+  console.log(target);
+  playRound(choice);
 });
 
 roundCounter.innerText = round;
@@ -35,6 +39,12 @@ function getComputerChoice() {
 
 function getResult(humanChoice, computerChoice) {
   let roundOutcome = "";
+
+  console.log(typeof humanChoice);
+  console.log(typeof computerChoice);
+
+  console.log(`humanChoice variable is ${humanChoice}`);
+  console.log(`computerChoice variable is ${computerChoice}`);
 
   // human wins
   if (
@@ -63,8 +73,8 @@ function getResult(humanChoice, computerChoice) {
   return roundOutcome;
 }
 
-function playRound(humanChoice) {
-  let humanSelection = humanChoice;
+function playRound(userChoice) {
+  let humanSelection = userChoice;
   let computerSelection = getComputerChoice().toLowerCase();
 
   console.log(`Computer plays ${computerSelection}`);
@@ -80,7 +90,12 @@ function playRound(humanChoice) {
   // deterrmine winner
   if (result === "Human wins") {
     humanScore += 1;
+    humanScoreCard.innerText = humanScore;
   } else if (result === "Computer wins") {
     computerScore += 1;
+    console.log("Computer gets 1 point");
+    computerScoreCard.innerText = computerScore;
   }
 }
+
+// TODO: logic is always resulting in a draw
