@@ -39,7 +39,7 @@ function getComputerChoice() {
 }
 
 function getResult(humanChoice, computerChoice) {
-  let roundOutcome = "";
+  let roundOutcome = `Round ${round + 1}: `;
 
   console.log(typeof humanChoice);
   console.log(typeof computerChoice);
@@ -53,8 +53,10 @@ function getResult(humanChoice, computerChoice) {
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
-    roundOutcome = "Human wins";
-    console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+    humanScore += 1;
+    humanScoreCard.textContent = humanScore;
+    roundOutcome += `You win! ${humanChoice} beats ${computerChoice}`;
+    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
 
     // computer wins
   } else if (
@@ -62,10 +64,12 @@ function getResult(humanChoice, computerChoice) {
     (computerChoice === "paper" && humanChoice === "rock") ||
     (computerChoice === "scissors" && humanChoice === "paper")
   ) {
-    roundOutcome = "Computer wins";
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+    computerScore += 1;
+    computerScoreCard.textContent = computerScore;
+    roundOutcome += `You lose! ${computerChoice} beats ${humanChoice}`;
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
   } else {
-    roundOutcome = "Draw";
+    roundOutcome += "It's a draw!";
     console.log("It's a draw!");
   }
 
@@ -89,10 +93,6 @@ function playRound(userChoice) {
   console.log(round);
 
   giveFeedback(result);
-
-  // deterrmine round winner
-  getRoundWinner(result);
-
   getGameWinner();
 }
 
@@ -102,21 +102,10 @@ function giveFeedback(outcome) {
   feedback.appendChild(paragraph);
 }
 
-function getRoundWinner(result) {
-  if (result === "Human wins") {
-    humanScore += 1;
-    humanScoreCard.innerText = humanScore;
-  } else if (result === "Computer wins") {
-    computerScore += 1;
-    console.log("Computer gets 1 point");
-    computerScoreCard.innerText = computerScore;
-  }
-}
-
 function getGameWinner() {
   if (humanScore === 5) {
-    giveFeedback("Congratulations you win!");
+    giveFeedback("Congratulations you win the game!");
   } else if (computerScore === 5) {
-    giveFeedback("Computer wins. You lose.");
+    giveFeedback("Computer wins the game.");
   }
 }
