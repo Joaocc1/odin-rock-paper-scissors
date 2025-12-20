@@ -71,10 +71,6 @@ function getResult(humanChoice, computerChoice) {
 
   console.log(`You: ${humanScore}; Computer: ${computerScore}`);
 
-  const paragraph = document.createElement("p");
-  paragraph.textContent = roundOutcome;
-  feedback.appendChild(paragraph);
-
   return roundOutcome;
 }
 
@@ -92,7 +88,21 @@ function playRound(userChoice) {
 
   console.log(round);
 
-  // deterrmine winner
+  giveFeedback(result);
+
+  // deterrmine round winner
+  getRoundWinner(result);
+
+  getGameWinner();
+}
+
+function giveFeedback(outcome) {
+  const paragraph = document.createElement("p");
+  paragraph.textContent = outcome;
+  feedback.appendChild(paragraph);
+}
+
+function getRoundWinner(result) {
   if (result === "Human wins") {
     humanScore += 1;
     humanScoreCard.innerText = humanScore;
@@ -103,4 +113,10 @@ function playRound(userChoice) {
   }
 }
 
-// TODO: logic is always resulting in a draw
+function getGameWinner() {
+  if (humanScore === 5) {
+    giveFeedback("Congratulations you win!");
+  } else if (computerScore === 5) {
+    giveFeedback("Computer wins. You lose.");
+  }
+}
