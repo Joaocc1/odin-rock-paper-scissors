@@ -71,7 +71,10 @@ function getResult(humanChoice, computerChoice) {
 
   console.log(`You: ${humanScore}; Computer: ${computerScore}`);
 
-  feedback.innerText = roundOutcome;
+  const paragraph = document.createElement("p");
+  paragraph.textContent = roundOutcome;
+  feedback.appendChild(paragraph);
+
   return roundOutcome;
 }
 
