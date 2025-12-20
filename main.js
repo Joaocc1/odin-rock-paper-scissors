@@ -11,14 +11,18 @@ const feedback = document.querySelector("#feedback");
 let round = 0;
 let humanScore = 0;
 let computerScore = 0;
+let isGameFinished = false;
 
 buttons.addEventListener("click", (e) => {
-  let target = Array.from(e.target.classList);
-  let choice = target[0];
-  console.log(typeof target);
-  console.log(Array.isArray(target));
-  console.log(target);
-  playRound(choice);
+  if (isGameFinished) {
+  } else {
+    let target = Array.from(e.target.classList);
+    let choice = target[0];
+    console.log(typeof target);
+    console.log(Array.isArray(target));
+    console.log(target);
+    playRound(choice);
+  }
 });
 
 roundCounter.innerText = round;
@@ -105,7 +109,9 @@ function giveFeedback(outcome) {
 function getGameWinner() {
   if (humanScore === 5) {
     giveFeedback("Congratulations you win the game!");
+    isGameFinished = true;
   } else if (computerScore === 5) {
     giveFeedback("Computer wins the game.");
+    isGameFinished = true;
   }
 }
