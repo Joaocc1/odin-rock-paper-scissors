@@ -6,6 +6,7 @@ let computerScoreCard = document
   .querySelector(".computer-score")
   .querySelector("span");
 let buttons = document.querySelector("#buttons");
+const feedback = document.querySelector("#feedback");
 
 let round = 0;
 let humanScore = 0;
@@ -70,6 +71,7 @@ function getResult(humanChoice, computerChoice) {
 
   console.log(`You: ${humanScore}; Computer: ${computerScore}`);
 
+  feedback.innerText = roundOutcome;
   return roundOutcome;
 }
 
