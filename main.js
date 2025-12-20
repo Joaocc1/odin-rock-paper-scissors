@@ -18,9 +18,6 @@ buttons.addEventListener("click", (e) => {
   } else {
     let target = Array.from(e.target.classList);
     let choice = target[0];
-    console.log(typeof target);
-    console.log(Array.isArray(target));
-    console.log(target);
     playRound(choice);
   }
 });
@@ -45,12 +42,6 @@ function getComputerChoice() {
 function getResult(humanChoice, computerChoice) {
   let roundOutcome = `Round ${round + 1}: `;
 
-  console.log(typeof humanChoice);
-  console.log(typeof computerChoice);
-
-  console.log(`humanChoice variable is ${humanChoice}`);
-  console.log(`computerChoice variable is ${computerChoice}`);
-
   // human wins
   if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
@@ -60,7 +51,6 @@ function getResult(humanChoice, computerChoice) {
     humanScore += 1;
     humanScoreCard.textContent = humanScore;
     roundOutcome += `You win! ${humanChoice} beats ${computerChoice}`;
-    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
 
     // computer wins
   } else if (
@@ -71,10 +61,8 @@ function getResult(humanChoice, computerChoice) {
     computerScore += 1;
     computerScoreCard.textContent = computerScore;
     roundOutcome += `You lose! ${computerChoice} beats ${humanChoice}`;
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
   } else {
     roundOutcome += "It's a draw!";
-    console.log("It's a draw!");
   }
 
   console.log(`You: ${humanScore}; Computer: ${computerScore}`);
@@ -93,8 +81,6 @@ function playRound(userChoice) {
   console.log(result);
   round += 1;
   roundCounter.innerText = round;
-
-  console.log(round);
 
   giveFeedback(result);
   getGameWinner();
