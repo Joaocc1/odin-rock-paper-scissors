@@ -96,8 +96,16 @@ function getGameWinner() {
   if (humanScore === 5) {
     giveFeedback("Congratulations you win the game!");
     isGameFinished = true;
+    resetGame();
   } else if (computerScore === 5) {
     giveFeedback("Computer wins the game.");
     isGameFinished = true;
+    resetGame();
   }
+}
+
+function resetGame() {
+  const reset = document.createElement("button");
+  reset.textContent = "Start new game";
+  feedback.appendChild(reset);
 }
