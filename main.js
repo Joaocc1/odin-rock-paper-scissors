@@ -40,7 +40,7 @@ function getComputerChoice() {
 }
 
 function getResult(humanChoice, computerChoice) {
-  let roundOutcome = `Round ${round + 1}: `;
+  let roundOutcome = `Round ${round + 1}: You (${humanChoice}) vs computer (${computerChoice}). `;
 
   // human wins
   if (
