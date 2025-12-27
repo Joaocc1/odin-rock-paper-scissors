@@ -6,8 +6,8 @@ const computerScoreCard = document
   .querySelector(".computer-score")
   .querySelector("span");
 const reset = document.getElementById("reset");
-const buttons = document.querySelector("#buttons");
-const feedback = document.querySelector("#feedback");
+const buttons = document.getElementById("buttons");
+const feedback = document.getElementById("feedback");
 
 let round = 0;
 let humanScore = 0;
