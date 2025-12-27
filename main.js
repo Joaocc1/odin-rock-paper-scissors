@@ -5,6 +5,7 @@ const humanScoreCard = document
 const computerScoreCard = document
   .querySelector(".computer-score")
   .querySelector("span");
+const reset = document.getElementById("reset");
 const buttons = document.querySelector("#buttons");
 const feedback = document.querySelector("#feedback");
 
@@ -96,35 +97,24 @@ function getGameWinner() {
   if (humanScore === 5) {
     giveFeedback("Congratulations you win the game!");
     isGameFinished = true;
-    resetGame();
   } else if (computerScore === 5) {
     giveFeedback("Computer wins the game.");
     isGameFinished = true;
-    resetGame();
   }
 }
 
-function resetGame() {
-  const reset = document.createElement("button");
-  reset.textContent = "Start new game";
-  reset.classList.add("reset");
-  feedback.appendChild(reset);
-}
+reset.addEventListener("click", (e) => {
+  round = 0;
+  humanScore = 0;
+  computerScore = 0;
+  isGameFinished = false;
 
-document.addEventListener("click", (e) => {
-  if (e.target.matches(".reset")) {
-    round = 0;
-    humanScore = 0;
-    computerScore = 0;
-    isGameFinished = false;
+  roundCounter.innerText = round;
+  humanScoreCard.innerText = humanScore;
+  computerScoreCard.innerText = computerScore;
 
-    roundCounter.innerText = round;
-    humanScoreCard.innerText = humanScore;
-    computerScoreCard.innerText = computerScore;
-
-    const elements = document.getElementById("feedback");
-    while (elements.firstChild) {
-      elements.removeChild(elements.firstChild);
-    }
+  const elements = document.getElementById("feedback");
+  while (elements.firstChild) {
+    elements.removeChild(elements.firstChild);
   }
 });
