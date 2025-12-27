@@ -66,8 +66,6 @@ function getResult(humanChoice, computerChoice) {
     roundOutcome += "It's a draw!";
   }
 
-  console.log(`You: ${humanScore}; Computer: ${computerScore}`);
-
   return roundOutcome;
 }
 
@@ -75,11 +73,7 @@ function playRound(userChoice) {
   let humanSelection = userChoice;
   let computerSelection = getComputerChoice().toLowerCase();
 
-  console.log(`Computer plays ${computerSelection}`);
-  console.log(`You play ${humanSelection}`);
-
   let result = getResult(humanSelection, computerSelection);
-  console.log(result);
   round += 1;
   roundCounter.innerText = round;
 
