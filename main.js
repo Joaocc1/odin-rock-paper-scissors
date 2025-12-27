@@ -107,5 +107,24 @@ function getGameWinner() {
 function resetGame() {
   const reset = document.createElement("button");
   reset.textContent = "Start new game";
+  reset.classList.add("reset");
   feedback.appendChild(reset);
 }
+
+document.addEventListener("click", (e) => {
+  if (e.target.matches(".reset")) {
+    round = 0;
+    humanScore = 0;
+    computerScore = 0;
+    isGameFinished = false;
+
+    roundCounter.innerText = round;
+    humanScoreCard.innerText = humanScore;
+    computerScoreCard.innerText = computerScore;
+
+    const elements = document.getElementById("feedback");
+    while (elements.firstChild) {
+      elements.removeChild(elements.firstChild);
+    }
+  }
+});
